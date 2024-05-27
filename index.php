@@ -54,11 +54,12 @@ $Produits = afficher();
     </nav>
     <!-- la présentation + logo -->
     <div class="about">
-        <h2>Bienvenue chez Lucas Fashion</h2>
-        <p>Nous sommes heureux de vous présenter notre nouvelle entreprise de vêtements et de mode. Nous avons créé Lucas Fashion dans le but de proposer des vêtements de qualité à des prix abordables, tout en mettant l'accent sur l'éthique et l'environnement. Nous croyons que la mode peut être durable et responsable, c'est pourquoi nous travaillons avec des matières premières écologiques et nous soutenons des projets sociaux et environnementaux.</p>
+        <h2>Bienvenue chez L&T</h2>
+        <p>Nous sommes heureux de vous présenter notre nouvelle entreprise de vêtements et de mode. Nous avons créé L&T dans le but de proposer des vêtements de qualité à des prix abordables, tout en mettant l'accent sur l'éthique et l'environnement. Nous croyons que la mode peut être durable et responsable, c'est pourquoi nous travaillons avec des matières premières écologiques et nous soutenons des projets sociaux et environnementaux.</p>
         <p>Nous espérons que vous apprécierez notre sélection de vêtements et que vous vous sentirez bien dans nos produits. N'hésitez pas à nous contacter si vous avez des questions ou des suggestions, nous serons ravis de vous aider !</p>
         <img src="annexe/cintre.png">
     </div>
+    
     <!-- Affichage des produits en ligne -->
     <div class="container">
         <?php foreach ($Produits as $produit) : ?>
@@ -66,12 +67,12 @@ $Produits = afficher();
             <a href="afficherproduit.php?idproduit=<?= $produit->id ?>">
 
                 <div style="width: 500px; height:600px;position: relative;" class="product">
-                    <img style="max-height:411px; max-width:300px; margin-bottom:200px" src="<?= $produit->image_produit ?>">
+                    <img style="max-height:411px; max-width:300px; margin-bottom:200px" src="<?= $produit->image ?>">
                     <div style="position: absolute; bottom:0; margin-bottom:30px">
                         <h3 style="color:#393d3fff;"><?= $produit->modele ?></h3>
-                        <p>Taille : <?= $produit->taille ?></p>
+                        <p>Taille : <?= afficherTaillebis($produit->id_taille) ?></p>
                         <!-- taille du paragraphe max de 50 caracteres -->
-                        <p><?= substr($produit->description_produit, 0, 50); ?>...</p>
+                        <p><?= substr($produit->description, 0, 50); ?>...</p>
                         <p style="font-size: large; font-weight:bold"><?= $produit->prix ?>€</p>
                     </div>
                 </div>
@@ -79,7 +80,7 @@ $Produits = afficher();
         <?php endforeach; ?>
     </div>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a href="pages/terms.php">Termes et conditions</a></li>
             <li><a href="pages/privacy.php">Politique de confidentialité</a></li>

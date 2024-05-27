@@ -34,7 +34,7 @@
     </nav>
     <!-- politique de confidentialite -->
     <div class="about">
-        <h2>Bienvenue chez Lucas Fashion</h2>
+        <h2>Bienvenue chez L&T</h2>
         <h3>Politique de confidentialité</h3>
         <p>Nous respectons votre vie privée et nous nous engageons à protéger les informations personnelles que vous nous fournissez. Cette politique de confidentialité explique comment nous collectons, utilisons et partageons vos informations personnelles lorsque vous utilisez notre site de vente en ligne de vêtements.</p>
 
@@ -61,7 +61,7 @@
         <img src="../annexe/cintre.png">
     </div>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a href="terms.php">Termes et conditions</a></li>
             <li><a href="#">Politique de confidentialité</a></li>

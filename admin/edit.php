@@ -95,8 +95,8 @@ if (isset($_POST['valider'])) {
         <form class="login" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Titre de l'image</label>
-                <input type="name" class="form-control" name="image" value="<?= $produit->image_produit ?>" placeholder="Lien de l'image..." required>
-                <img style="width: 10%;" src="<?= $produit->image_produit ?>">
+                <input type="name" class="form-control" name="image" value="<?= $produit->image ?>" placeholder="Lien de l'image..." required>
+                <img style="width: 10%;" src="<?= $produit->image ?>">
             </div>
 
             <div class="form-group">
@@ -106,12 +106,12 @@ if (isset($_POST['valider'])) {
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Description</label>
-                <textarea class="form-control" name="desc" placeholder="Un joli jean tout bleu qui perm..." required><?= $produit->description_produit ?></textarea>
+                <textarea class="form-control" name="desc" placeholder="Un joli jean tout bleu qui perm..." required><?= $produit->description ?></textarea>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Taille</label>
-                <input type="text" class="form-control" value="<?= $produit->taille ?>" placeholder="XXS, XS, S, M, L, XL, XXL" name="taille" required>
+                <input type="text" class="form-control" value="<?= $produit->id_taille ?>" placeholder="XXS, XS, S, M, L, XL, XXL" name="taille" required>
             </div>
 
             <div class="form-group">
@@ -124,7 +124,7 @@ if (isset($_POST['valider'])) {
         </form>
     <?php endforeach ?>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a style="color: #fff;" href="../pages/terms.php">Termes et conditions</a></li>
             <li><a style="color: #fff;" href="../pages/privacy.php">Politique de confidentialité</a></li>

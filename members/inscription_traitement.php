@@ -2,28 +2,28 @@
 require_once '../config/connexion.php';
 
 // on verifie que les variables ne sont pas vides
-if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_retype']) && !empty($_POST['adresse'])) {
+if (!empty($_POST['nom']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_retype']) && !empty($_POST['adresse'])) {
     // on met les mets dans des variables
-    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $nom = htmlspecialchars($_POST['nom']);
     $email = htmlspecialchars($_POST['email']);
     $adresse = htmlspecialchars($_POST['adresse']);
     $password = htmlspecialchars($_POST['password']);
     $password_retype = htmlspecialchars($_POST['password_retype']);
 
     // on verifie si l'utilisateur est deja existant
-    $check = $bdd->prepare('SELECT pseudo, email, password FROM utilisateurs WHERE email = ?');
+    $check = $bdd->prepare('SELECT nom, email, password FROM compte WHERE email = ?');
     $check->execute(array($email));
     $data = $check->fetch();
     $row = $check->rowCount();
 
     // on met l'email tout en minuscule
     $email = strtolower($email);
-
+    echo 'test';
     // si row== 0 l'utilisateur n'est pas inscrit 
     if ($row == 0) {
-
-        // on verifie que la longueur du pseudo est inferieur ou egal 100
-        if (strlen($pseudo) <= 100) {
+        echo 'verif passée';
+        // on verifie que la longueur du nom est inferieur ou egal 100
+        if (strlen($nom) <= 100) {
 
             // on verifie que la longueur de l'email est inferieur ou egal 100
             if (strlen($email) <= 100) {
@@ -38,17 +38,13 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['passwo
                         $cost = ['cost' => 12];
                         $password = password_hash($password, PASSWORD_BCRYPT, $cost);
 
-                        // on sauvegarde l'addresse IP
-                        $ip = $_SERVER['REMOTE_ADDR'];
-
                         // on les mets dans la base
-                        $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, adresse, password, ip, token) VALUES(:pseudo, :email, :adresse, :password, :ip, :token)');
+                        $insert = $bdd->prepare('INSERT INTO compte(nom, email, adresse, password, token) VALUES(:nom, :email, :adresse, :password, :token)');
                         $insert->execute(array(
-                            'pseudo' => $pseudo,
+                            'nom' => $nom,
                             'email' => $email,
                             'adresse' => $adresse,
                             'password' => $password,
-                            'ip' => $ip,
                             // on genere un token aleatoire
                             'token' => bin2hex(openssl_random_pseudo_bytes(64))
                         ));
@@ -68,11 +64,13 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['passwo
                 die();
             }
         } else {
-            header('Location: inscription.php?reg_err=pseudo_length');
+            header('Location: inscription.php?reg_err=nom_length');
             die();
         }
     } else {
         header('Location: inscription.php?reg_err=already');
         die();
     }
+} else {
+    echo 'ah';
 }

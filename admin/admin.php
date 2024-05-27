@@ -54,7 +54,7 @@ $Types = afficherType();
         <label for="exampleInputEmail1">Type du vêtement*</label>
         <select name='type' class="champ">
             <?php foreach ($Types as $type) : ?>
-                <option value="<?= $type->type_id ?>"><?= $type->type_nom ?></option>
+                <option value="<?= $type->id ?>"><?= $type->type_vetement ?></option>
             <?php endforeach; ?>
         </select>
 
@@ -82,7 +82,7 @@ $Types = afficherType();
         <input type="submit" class="btn btn-primary" name="valider" value="Mettre en ligne le produit">
     </form>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a style="color: #fff;" href="../pages/terms.php">Termes et conditions</a></li>
             <li><a style="color: #fff;" href="../pages/privacy.php">Politique de confidentialité</a></li>

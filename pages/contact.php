@@ -90,7 +90,7 @@ if (isset($_POST['valider'])) {
     </form>
     <!-- footer -->
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a style="color: #fff;" href="terms.php">Termes et conditions</a></li>
             <li><a style="color: #fff;" href="#">Politique de confidentialité</a></li>

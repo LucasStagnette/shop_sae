@@ -64,7 +64,7 @@
                 case 'pseudo_length':
                 ?>
                     <div class="alert alert-danger">
-                        <strong>Erreur</strong> : pseudo trop long
+                        <strong>Erreur</strong> : nom trop long
                     </div>
                 <?php
                 case 'already':
@@ -83,7 +83,7 @@
             <h2 class="text-center">Inscription</h2>
             <br>
             <div class="form-group">
-                <input type="text" name="pseudo" class="form-control" placeholder="Pseudo" required="required" autocomplete="off">
+                <input type="text" name="nom" class="form-control" placeholder="Nom" required="required" autocomplete="on">
             </div>
             <br>
             <div class="form-group">

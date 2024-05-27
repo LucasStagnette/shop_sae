@@ -58,7 +58,7 @@ $Produits = afficher();
         <?php foreach ($Produits as $produit) : ?>
             <div style="width: 400px; height:500px;position: relative;" class="product">
 
-                <img style="max-height:394px; max-width:300px; margin-bottom:200px; margin:auto;" src="<?= $produit->image_produit ?>">
+                <img style="max-height:394px; max-width:300px; margin-bottom:200px; margin:auto;" src="<?= $produit->image ?>">
                 <br><br><br><br><br><br>
 
                 <div style="position: absolute; bottom:0; margin-bottom:30px; display:flex; justify-content:space-between">
@@ -74,13 +74,13 @@ $Produits = afficher();
         <?php endforeach; ?>
     </div>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a href="../pages/terms.php">Termes et conditions</a></li>
             <li><a href="../pages/privacy.php">Politique de confidentialité</a></li>
             <li><a href="../pages/contact.php">Contact</a></li>
         </ul>
     </footer>
-</body>
+</body> 
 
 </html>

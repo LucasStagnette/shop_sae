@@ -26,7 +26,7 @@ if (isset($_GET['idproduit'])) {
 }
 if (isset($_SESSION['user'])) {
     // on prend l'id de l'utilisateur
-    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
+    $req = $bdd->prepare('SELECT * FROM compte WHERE token = ?');
     $req->execute(array($_SESSION['user']));
     $userinfo = $req->fetch();
     $id_user = $userinfo['id'];
@@ -86,12 +86,12 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
     <?php foreach ($Produits as $produit) : ?>
         <!-- on affiche les attributs du produit -->
         <div style="margin:auto; width: 1000px; height:600px;" class="product">
-            <img style="height:569px; width:539px;" src="<?= $produit->image_produit ?>">
+            <img style="height:569px; width:539px;" src="<?= $produit->image ?>">
 
             <div style="display:inline; max-width:408px;  ">
                 <h3><?= $produit->modele ?></h3>
-                <p><?= $produit->taille ?></p>
-                <p><?= $produit->description_produit ?></p>
+                <p><?= afficherTaillebis($produit->id_taille) ?></p>
+                <p><?= $produit->description ?></p>
                 <p><?= $produit->prix ?> €</p>
 
 
@@ -122,7 +122,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST')) {
     <?php endforeach ?>
     <br>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a style="color: #fff;" href="pages/terms.php">Termes et conditions</a></li>
             <li><a style="color: #fff;" href="pages/privacy.php">Politique de confidentialité</a></li>

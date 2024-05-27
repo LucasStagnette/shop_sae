@@ -34,7 +34,7 @@
     </nav>
     <!-- conditions de ventes -->
     <div class="about">
-        <h2>Bienvenue chez Lucas Fashion</h2>
+        <h2>Bienvenue chez L&T</h2>
 
         <h3>Conditions générales de vente</h3>
         <p>Bienvenue sur notre site de vente en ligne de vêtements. En utilisant notre site, vous acceptez les présentes conditions générales de vente. Veuillez lire attentivement ces conditions avant d'utiliser notre site ou de passer une commande.</p>
@@ -73,7 +73,7 @@
         <img src="../annexe/cintre.png">
     </div>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a href="#">Termes et conditions</a></li>
             <li><a href="privacy.php">Politique de confidentialité</a></li>

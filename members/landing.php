@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 // on recupere les donnees de l'utilisateur
-$req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
+$req = $bdd->prepare('SELECT * FROM compte WHERE token = ?');
 $req->execute(array($_SESSION['user']));
 $data = $req->fetch();
 
@@ -66,10 +66,10 @@ $Commandes = afficherCommandeId($data['id'])
                 <br>
                 <div style="margin:auto;width:900px;height:auto;" class="product">
                     <!-- informations relative au compte -->
-                    <h1 style="color: #333;" class="p-5">Bonjour <?= substr($data['pseudo'], 0, 20) ?> !</h1>
+                    <h1 style="color: #333;" class="p-5">Bonjour <?= substr($data['nom'], 0, 20) ?> !</h1>
                     <h2 style="color: #333;"> Vos informations : </h2><br>
                     <div style="color: #333;">
-                        <p style="color: #333;">Pseudo : <?= $data['pseudo'] ?></p>
+                        <p style="color: #333;">Nom : <?= $data['nom'] ?></p>
                         <p style="color: #333;">Email : <?= $data['email']; ?></p>
                         <p style="color: #333;">Adresse : <?= substr($data['adresse'], 0, 100) ?></p>
                         <p style="color: #333;">Date et heure d'inscription : <?= $data['date_inscription']; ?></p>
@@ -92,9 +92,9 @@ $Commandes = afficherCommandeId($data['id'])
                                 <p>Taille : <?= afficherTaille($commande->id_produit) ?> </p>
                                 <p>Quantité : <?= $commande->quantite ?></p>
                                 <p>Prix total : <?= $commande->prix ?> €</p>
-                                <p>Adresse de livraison : <?= afficherAdresse($commande->id_utilisateur) ?> </p>
-                                <p>Date : <?= $commande->date_commande ?></p>
-                                <a href="../config/commandes.php?action=supprimercommandeuser&parametre=<?= urlencode($commande->id_commande); ?>"><button style="vertical-align: bottom; border-radius:5px;">Annuler ma commande</button></a><br>
+                                <p>Adresse de livraison : <?= afficherAdresse($commande->id_compte) ?> </p>
+                                <p>Date : <?= $commande->date ?></p>
+                                <a href="../config/commandes.php?action=supprimercommandeuser&parametre=<?= urlencode($commande->id); ?>"><button style="vertical-align: bottom; border-radius:5px;">Annuler ma commande</button></a><br>
                             </div>
                         <?php $nbCommande = $nbCommande + 1;
                         endforeach;
@@ -107,7 +107,7 @@ $Commandes = afficherCommandeId($data['id'])
     </div>
     <br><br><br>
     <footer>
-        <p>Copyright 2022 Lucas Fashion</p>
+        <p>Copyright 2022 L&T</p>
         <ul>
             <li><a style="color: #fff;" href="../pages/terms.php">Termes et conditions</a></li>
             <li><a style="color: #fff;" href="../pages/privacy.php">Politique de confidentialité</a></li>

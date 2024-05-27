@@ -1,0 +1,8 @@
+message d'erreur suppression produit lorsqu'il y a une commande en cours
+
+eviter d'avoir des nombres négatifs, commande + mettre en vente produit
+
+probleme de connexion : 
+pour régler : 
+mettre en commentaire les redirections sur le index de connexion et trouver pourquoi on a mot de passe incorect
+

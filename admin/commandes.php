@@ -57,19 +57,18 @@ $Commandes = afficherCommande();
         <?php $nbCommande = 0;
         foreach ($Commandes as $commande) : ?>
             <div style="margin-left: 30px;margin-right: 30px;width: 1000px; height:400px;position: relative;" class="product">
-
+                
                 <!-- importation de l'apercu du produit -->
                 <img style="max-height:360px; max-width:380px;" src="<?= afficherImageCommande($commande->id_produit); ?>">
                 <div class="info-commande">
                     <p style="font-size: 20px;">Commande N°<?= $nbCommande + 1 ?></p>
-                    <p>Pour : <?= substr(afficherPseudo($commande->id_utilisateur), 0, 40) ?><br>
+                    <p>Pour : <?= substr(afficherPseudo($commande->id_compte), 0, 40) ?><br>
                         Produit : <?= afficherModele($commande->id_produit) ?><br>
-                        Taille : <?= afficherTaille($commande->id_produit) ?><br>
                         Quantité : <?= $commande->quantite ?><br>
                         Prix total : <?= $commande->prix ?> €<br>
-                        Adresse : <?= substr(afficherAdresse($commande->id_utilisateur), 0, 40) ?><br>
-                        Date : <?= $commande->date_commande ?></p> <br>
-                    <center><a href="../config/commandes.php?action=supprimercommande&parametre=<?php echo urlencode($commande->id_commande); ?>"><button style="border-radius: 5px;">Supprimer la commande</button></a></center>
+                        Adresse : <?= substr(afficherAdresse($commande->id_compte), 0, 40) ?><br>
+                        Date : <?= $commande->date ?></p> <br>
+                    <center><a href="../config/commandes.php?action=supprimercommande&parametre=<?php echo urlencode($commande->id); ?>"><button style="border-radius: 5px;">Supprimer la commande</button></a></center>
                     <br>
                 </div>
             </div>
@@ -81,7 +80,7 @@ $Commandes = afficherCommande();
         <!-- alors on affiche le footer differement avec le message aucune commande en cours -->
         <h2 style="text-align:center;margin-top:300px; color:#fff; font-weight:700; text-decoration:underline">Aucune commande en cours</h2><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <footer>
-            <p>Copyright 2022 Lucas Fashion</p>
+            <p>Copyright 2022 L&T</p>
             <ul>
                 <li><a href="../pages/terms.php">Termes et conditions</a></li>
                 <li><a href="../pages/privacy.php">Politique de confidentialité</a></li>
@@ -89,7 +88,7 @@ $Commandes = afficherCommande();
             </ul>
         </footer><?php } else { ?>
         <footer>
-            <p>Copyright 2022 Lucas Fashion</p>
+            <p>Copyright 2022 L&T</p>
             <ul>
                 <li><a href="../pages/terms.php">Termes et conditions</a></li>
                 <li><a href="../pages/privacy.php">Politique de confidentialité</a></li>

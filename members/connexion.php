@@ -12,11 +12,10 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $email = strtolower($email);
 
     // on regarde si il est deja inscrit dans la base de donne
-    $check = $bdd->prepare('SELECT pseudo, email, password, token FROM utilisateurs WHERE email = ?');
+    $check = $bdd->prepare('SELECT nom, email, password, token FROM compte WHERE email = ?');
     $check->execute(array($email));
     $data = $check->fetch();
     $row = $check->rowCount();
-
     // on verifie si $row >0 -> il est deja inscrit sinon il n'est pas inscrit
     if ($row > 0) {
         // on verifie si l'email est au bon format
